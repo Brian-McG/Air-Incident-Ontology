@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/mcgbri004/air-crash-ontology#"
+     xml:base="http://www.semanticweb.org/mcgbri004/air-crash-ontology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasAircraft -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasAircraft">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Flight"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Aircraft"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#isType -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#isType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Flight"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Aircraft -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Aircraft"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airline -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airline"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#CabinCrew -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CabinCrew">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Crew"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Cause -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Cause"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#CoPilot -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CoPilot">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightCrew"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Crew -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Crew"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Domestic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Domestic">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightType"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#International"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Flight -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Flight">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasAircraft"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Aircraft"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#isType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightAttendant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightAttendant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CabinCrew"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightCrew -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightCrew">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Crew"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightEngineer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightEngineer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightCrew"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightType">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Domestic"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#International"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#International -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#International">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#InvestigationTeam -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#InvestigationTeam"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Pilot -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Pilot">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightCrew"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#SouthAfrica -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#SouthAfrica">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airline"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi -->
+
