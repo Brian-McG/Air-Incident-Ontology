@@ -1,5 +1,5 @@
 # Air-Crash-Ontology
 
 ### Collaborators
-Brian Mc George
-Charles Du
+  - Brian Mc George
+  - Charles Du
