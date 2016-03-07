@@ -1,4 +1,4 @@
-# Air-Crash-Ontology
+# Air Crash Ontology
 
 ### Collaborators
   - Brian Mc George
