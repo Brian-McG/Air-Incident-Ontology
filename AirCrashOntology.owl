@@ -21,12 +21,54 @@
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#crashedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#crashedIn"/>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasAircraft -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasAircraft">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Flight"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Aircraft"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasArrival -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasArrival">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasDeparture -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasDeparture">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasHeadquatersIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasHeadquatersIn"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#isAffiliatedWith -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#isAffiliatedWith">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#InvestigationBureau"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#isLocatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#isLocatedIn"/>
     
 
 
@@ -42,11 +84,131 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasADSHEX -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasADSHEX">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">Mode S equipment (aviation transponder interrogation modes) on aircrafts are assigned a unique ICAO 24-bit address or (informally) Mode-S &quot;hex code&quot; upon national registration and this address becomes a part of the aircraft&apos;s Certificate of Registration. Normally, the address is never changed, however, the transponders are reprogrammable and, occasionally, are moved from one aircraft to another (presumably for operational or cost purposes), either by maintenance or by changing the appropriate entry in the aircraft&apos;s Flight management system.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasAge -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasAge">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">The age of the aircraft in operation</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasAirline -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasAirline">
+        <rdfs:comment xml:lang="en">The airline that operates this aircraft</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasConstructionNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasConstructionNumber">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">The construction number (cn), also known as manufacturer&apos;s serial number (msn), is the permanent identity of an aircraft assigned by the manufacturer.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasDeliveryDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasDeliveryDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">The date the aircraft was first delivered to it&apos;s first customer</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasFirstFlight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasFirstFlight">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">The date of the aircraft&apos;s first flight</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasManufacturer -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasManufacturer">
+        <rdfs:comment xml:lang="en">The name of the company that manufactures the aircraft
+e.g. Boeing or Airbus</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasModel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasModel">
+        <rdfs:comment xml:lang="en">The specific model of the aircraft
+e.g. B737-800</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasOwner -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasOwner">
+        <rdfs:comment xml:lang="en">The person / company that owns the plane</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasRegistrationDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasRegistrationDate">
+        <rdfs:comment xml:lang="en">The date that the aircraft was registered</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasRegistrationNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasRegistrationNumber">
+        <rdfs:comment xml:lang="en">An aircraft registration number is a unique alphanumeric string that identifies an aircraft.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasPreviousOwner[IS_THIS_NEEDED_OR_POSIBLE?] -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasPreviousOwner[IS_THIS_NEEDED_OR_POSIBLE?]"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#AirTrafficControl -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#AirTrafficControl">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CauseOfCrash"/>
+    </owl:Class>
     
 
 
@@ -56,9 +218,23 @@
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#AircraftFailure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#AircraftFailure">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CauseOfCrash"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airline -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airline"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airport -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airport"/>
     
 
 
@@ -70,9 +246,17 @@
     
 
 
-    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Cause -->
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#CauseOfCrash -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Cause"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CauseOfCrash"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#ChiefPurser -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#ChiefPurser">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CabinCrew"/>
+    </owl:Class>
     
 
 
@@ -81,6 +265,12 @@
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CoPilot">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#FlightCrew"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Country -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Country"/>
     
 
 
@@ -104,8 +294,26 @@
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Flight">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#crashedIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Country"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasAircraft"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Aircraft"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasArrival"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airport"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasDeparture"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airport"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -166,9 +374,45 @@
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#InvestigationBureau -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#InvestigationBureau">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#hasHeadquatersIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Country"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#InvestigationTeam -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#InvestigationTeam"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#InvestigationTeam">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#isAffiliatedWith"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#InvestigationBureau"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Maintenance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Maintenance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CauseOfCrash"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#MechanicalFailure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#MechanicalFailure">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#AircraftFailure"/>
+    </owl:Class>
     
 
 
@@ -180,11 +424,70 @@
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#PilotError -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#PilotError">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CauseOfCrash"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Purser -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Purser">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CabinCrew"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Sabotage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Sabotage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CauseOfCrash"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#SouthAfrica -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#SouthAfrica">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Airline"/>
     </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#SystemFailure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#SystemFailure">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#AircraftFailure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Weather -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Weather">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#CauseOfCrash"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-crash-ontology#Test -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Test">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mcgbri004/air-crash-ontology#Flight"/>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 
