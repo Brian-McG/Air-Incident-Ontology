@@ -897,7 +897,9 @@
 
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#investigates -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#investigates"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#investigates">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#isInvestigatedBy"/>
+    </owl:ObjectProperty>
     
 
 
@@ -923,6 +925,12 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#isBookedOn">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Passenger"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#isInvestigatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#isInvestigatedBy"/>
     
 
 
@@ -1623,6 +1631,48 @@
                 <owl:hasValue rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Airbus"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Cockpit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fuselage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#VerticalStablizer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#HorizontalStabilizer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Wing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#JetEngine"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A double-deck, wide-body, four-engine jet airliner</rdfs:comment>
         <rdfs:seeAlso rdf:resource="http://www.airbus.com/aircraftfamilies/passengeraircraft/a380family/"/>
     </owl:Class>
@@ -1657,6 +1707,20 @@
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Aileron -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Aileron">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Wing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#AirTrafficControl -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AirTrafficControl">
@@ -1687,6 +1751,12 @@ This is used to show off the reasoner functionality by allowing it to clasify an
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Aircraft -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Aircraft">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasManufacturer"/>
@@ -1726,6 +1796,12 @@ Additional aircraft models will be added as required</rdfs:comment>
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftManufacturer">
         <rdfs:comment xml:lang="en">The company or individual that built the aircraft</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
     
 
 
@@ -1824,6 +1900,20 @@ Note: The instances are not a complete list</rdfs:comment>
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Cockpit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Cockpit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fuselage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Country -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Country">
@@ -1847,6 +1937,34 @@ Note: The instances are not a complete list</rdfs:comment>
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Elevator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Elevator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#VerticalStablizer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Engine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Engine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Wing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#FatalIncident -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#FatalIncident">
@@ -1859,6 +1977,20 @@ Note: The instances are not a complete list</rdfs:comment>
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#FirstOfficer">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Pilot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Flaps -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Flaps">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Wing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1971,6 +2103,43 @@ Note: The instances are not a complete list</rdfs:comment>
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#FourEngineAircraft -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#FourEngineAircraft">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Engine"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fuselage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fuselage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#HorizontalStabilizer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#HorizontalStabilizer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fuselage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Incident -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Incident">
@@ -1978,6 +2147,12 @@ Note: The instances are not a complete list</rdfs:comment>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#involves"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Flight"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#isInvestigatedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Investigation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2074,6 +2249,14 @@ Note: The instances are not a complete list</rdfs:comment>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#InvestigationTeam"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#JetEngine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#JetEngine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Engine"/>
     </owl:Class>
     
 
@@ -2179,6 +2362,20 @@ Note: The instances are not a complete list</rdfs:comment>
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Rudder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Rudder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#VerticalStablizer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Sabotage -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Sabotage">
@@ -2193,6 +2390,34 @@ Note: The instances are not a complete list</rdfs:comment>
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#SecondOfficer">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Pilot"/>
         <rdfs:comment xml:lang="en">The rank of Second Officer was traditionally a Flight Engineer, who was often the person who handled the engine controls.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Slats -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Slats">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Wing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Spoiler -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Spoiler">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Wing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -2215,11 +2440,62 @@ Note: The instances are not a complete list</rdfs:comment>
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#TurbopropEngine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#TurbopropEngine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Engine"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#TwoEngineAircraft -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#TwoEngineAircraft">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Engine"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#VerticalStablizer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#VerticalStablizer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fuselage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Weather -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Weather">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#CauseOfIncident"/>
         <rdfs:comment xml:lang="en">Represents a cause of a incident that is attributed to weather conditions at the time of the crash</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Wing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Wing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proper-part-of"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fuselage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -2232,6 +2508,48 @@ Note: The instances are not a complete list</rdfs:comment>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasManufacturer"/>
                 <owl:hasValue rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Boeing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Cockpit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fuselage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#VerticalStablizer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#HorizontalStabilizer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Wing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#JetEngine"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A wide-body commercial jet airliner and cargo aircraft</rdfs:comment>
@@ -2363,6 +2681,48 @@ Note: The instances are not a complete list</rdfs:comment>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasManufacturer"/>
                 <owl:hasValue rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Boeing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Cockpit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fuselage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#VerticalStablizer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#HorizontalStabilizer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#JetEngine"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Wing"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A family of long-range wide-body twin-engine jet airliners</rdfs:comment>
@@ -2631,6 +2991,23 @@ Note: The instances are not a complete list</rdfs:comment>
             <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#A380"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#747"/>
             <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#777"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Aileron"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Cockpit"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Elevator"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Engine"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Flaps"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fuselage"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#HorizontalStabilizer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Rudder"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Slats"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Spoiler"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#VerticalStablizer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Wing"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
