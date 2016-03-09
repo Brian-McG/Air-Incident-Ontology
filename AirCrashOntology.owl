@@ -970,7 +970,6 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#occuredAt">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Incident"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Location"/>
     </owl:ObjectProperty>
     
 
@@ -1751,6 +1750,7 @@ This is used to show off the reasoner functionality by allowing it to clasify an
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Aircraft -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Aircraft">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-object"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
@@ -1794,6 +1794,7 @@ Additional aircraft models will be added as required</rdfs:comment>
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftManufacturer -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftManufacturer">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#non-physical-object"/>
         <rdfs:comment xml:lang="en">The company or individual that built the aircraft</rdfs:comment>
     </owl:Class>
     
@@ -1801,7 +1802,9 @@ Additional aircraft models will be added as required</rdfs:comment>
 
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#AircraftPart">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-object"/>
+    </owl:Class>
     
 
 
@@ -1816,6 +1819,7 @@ Additional aircraft models will be added as required</rdfs:comment>
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Airline -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Airline">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#non-physical-object"/>
         <rdfs:comment xml:lang="en">An organization providing a regular public service of air transport on one or more routes</rdfs:comment>
     </owl:Class>
     
@@ -1824,6 +1828,7 @@ Additional aircraft models will be added as required</rdfs:comment>
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Airport -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Airport">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-object"/>
         <rdfs:comment xml:lang="en">A complex of runways and buildings for the take-off, landing, and maintenance of civil aircraft, with facilities for passengers</rdfs:comment>
     </owl:Class>
     
@@ -1867,6 +1872,7 @@ This is used to show off the reasoner functionality by allowing it to clasify an
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#CauseOfIncident -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#CauseOfIncident">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proposition"/>
         <rdfs:comment xml:lang="en">Represents a reason why the incident occured
 
 Note: The child classes are not necessariliy a covering set of causes. New, different causes may arise in the future. 
@@ -1892,7 +1898,7 @@ The child classes are also not necessarily distict from one another, for example
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#City -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#City">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Location"/>
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#space-region"/>
         <rdfs:comment xml:lang="en">Represents cities where airports reside
 
 Note: The instances are not a complete list</rdfs:comment>
@@ -1917,14 +1923,16 @@ Note: The instances are not a complete list</rdfs:comment>
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Country -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Country">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Location"/>
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#space-region"/>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Crew -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Crew"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Crew">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#arbitrary-sum"/>
+    </owl:Class>
     
 
 
@@ -1998,6 +2006,7 @@ Note: The instances are not a complete list</rdfs:comment>
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Flight -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Flight">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#achievement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasAircraft"/>
@@ -2099,6 +2108,7 @@ Note: The instances are not a complete list</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#temporal-quality"/>
     </owl:Class>
     
 
@@ -2110,7 +2120,7 @@ Note: The instances are not a complete list</rdfs:comment>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Engine"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#JetEngine"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Aircraft"/>
@@ -2143,6 +2153,7 @@ Note: The instances are not a complete list</rdfs:comment>
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Incident -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Incident">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#achievement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#involves"/>
@@ -2153,12 +2164,6 @@ Note: The instances are not a complete list</rdfs:comment>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#isInvestigatedBy"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Investigation"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#occuredAt"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Location"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -2176,6 +2181,7 @@ Note: The instances are not a complete list</rdfs:comment>
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Investigation -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Investigation">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#achievement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#finds"/>
@@ -2207,6 +2213,7 @@ Note: The instances are not a complete list</rdfs:comment>
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#InvestigationBureau -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#InvestigationBureau">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#non-physical-object"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasHeadquatersIn"/>
@@ -2219,7 +2226,9 @@ Note: The instances are not a complete list</rdfs:comment>
 
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#InvestigationTeam -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#InvestigationTeam"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#InvestigationTeam">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#arbitrary-sum"/>
+    </owl:Class>
     
 
 
@@ -2257,6 +2266,7 @@ Note: The instances are not a complete list</rdfs:comment>
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#JetEngine">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Engine"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#TurbopropEngine"/>
     </owl:Class>
     
 
@@ -2266,12 +2276,6 @@ Note: The instances are not a complete list</rdfs:comment>
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#LeadInvestigator">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Investigator"/>
     </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Location -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Location"/>
     
 
 
@@ -2319,7 +2323,9 @@ Note: The instances are not a complete list</rdfs:comment>
 
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Person -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Person"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Person">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#physical-object"/>
+    </owl:Class>
     
 
 
@@ -2358,7 +2364,9 @@ Note: The instances are not a complete list</rdfs:comment>
 
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Recomendation -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Recomendation"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Recomendation">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#proposition"/>
+    </owl:Class>
     
 
 
