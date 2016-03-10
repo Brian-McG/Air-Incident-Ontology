@@ -120,6 +120,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasRegion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasRegion">
+        <rdfs:domain rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#particular"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#investigates -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#investigates">
@@ -204,6 +212,25 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#occuredAt">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Incident"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasDataValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasDataValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -554,12 +581,6 @@ Note: The instances are not a complete list</rdfs:comment>
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Crew">
         <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#arbitrary-sum"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#specific-constant-constituent-of"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Person"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -615,7 +636,58 @@ Note: The instances are not a complete list</rdfs:comment>
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#FatalIncident -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#FatalIncident">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality"/>
+                <owl:someValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasRegion"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:complementOf>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasDataValue"/>
+                                        <owl:hasValue>0</owl:hasValue>
+                                    </owl:Restriction>
+                                </owl:complementOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Incident"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#NonFatalIncident"/>
+        <rdfs:comment xml:lang="en">The reasoner is used to categorise incidents into fatal or non-fatal incidents based on the number of fatalities</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fatalities -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fatalities">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#temporal-quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasRegion"/>
+                <owl:someValuesFrom rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#quale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Note: While in DOLCE, in general, fatality may be considered &apos;achievement&apos;, in this ontology it is used to describe the number of fatalities in an incident. Similar to how color may be used to describe a flower</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#FatalityRegion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#FatalityRegion">
+        <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#quale"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasDataValue"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -801,6 +873,12 @@ Note: The instances are not a complete list</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#achievement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fatalities"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#spatio-temporally-present-at"/>
                 <owl:someValuesFrom rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#spatio-temporal-region"/>
             </owl:Restriction>
@@ -852,12 +930,6 @@ Note: The instances are not a complete list</rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasInvestigationTeam"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#InvestigationTeam"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasRecomendation"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Recomendation"/>
             </owl:Restriction>
@@ -890,19 +962,6 @@ Note: The instances are not a complete list</rdfs:comment>
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#InvestigationTeam">
         <rdfs:subClassOf rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#arbitrary-sum"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#generic-constituent-of"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Investigator"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#specific-constant-constituent-of"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#LeadInvestigator"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -983,7 +1042,24 @@ Note: The instances are not a complete list</rdfs:comment>
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#NonFatalIncident -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#NonFatalIncident">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#has-quality"/>
+                <owl:someValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasRegion"/>
+                        <owl:someValuesFrom>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#hasDataValue"/>
+                                <owl:hasValue>0</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Incident"/>
+        <rdfs:comment xml:lang="en">The reasoner is used to categorise incidents into fatal or non-fatal incidents based on the number of fatalities</rdfs:comment>
     </owl:Class>
     
 
@@ -1532,6 +1608,24 @@ Note: The instances are not a complete list</rdfs:comment>
     
 
 
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#EthiopianAirlinesFlight702Fatalities -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#EthiopianAirlinesFlight702Fatalities">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fatalities"/>
+        <hasRegion rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#0Fatalities"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#EthiopianAirlinesFlight702Hijacking -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#EthiopianAirlinesFlight702Hijacking">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Incident"/>
+        <DOLCE-Lite:has-quality rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#EthiopianAirlinesFlight702Fatalities"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#Etihad -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Etihad">
@@ -1584,6 +1678,24 @@ Note: The instances are not a complete list</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#London">
         <rdf:type rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#City"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#MH370Fatalities -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#MH370Fatalities">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Fatalities"/>
+        <hasRegion rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#239Fatalties"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#MH370PlaneDisapears -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#MH370PlaneDisapears">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Incident"/>
+        <DOLCE-Lite:has-quality rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#MH370Fatalities"/>
     </owl:NamedIndividual>
     
 
@@ -1656,6 +1768,33 @@ Note: The instances are not a complete list</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#WashingtonDC">
         <rdf:type rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#City"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#0Fatalities -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#0Fatalities">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#FatalityRegion"/>
+        <hasDataValue>0</hasDataValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#239Fatalties -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#239Fatalties">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#FatalityRegion"/>
+        <hasDataValue>239</hasDataValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#4Fatalities -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#4Fatalities">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#FatalityRegion"/>
+        <hasDataValue>4</hasDataValue>
     </owl:NamedIndividual>
     
 
