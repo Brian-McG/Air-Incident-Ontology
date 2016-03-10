@@ -9,6 +9,13 @@
      xmlns:DOLCE-Lite="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology">
         <owl:imports rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl"/>
+        <rdfs:comment xml:lang="en">Air-incident is an ontology is designed to facilitate ontology driven information systems on flight incidents.
+
+It makes use of the DOLCE foundational ontology.
+
+It describes the incidents, investigations) that followed as well as the causes and recommendations that arose from the investigation. 
+
+It also allows for a detailed description of the parts of an aircraft which is critical for an investigation.</rdfs:comment>
     </owl:Ontology>
     
 
