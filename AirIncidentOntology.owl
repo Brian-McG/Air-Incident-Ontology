@@ -845,9 +845,9 @@ Note: The instances are not a complete list</rdfs:comment>
     
 
 
-    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#FourEngineAircraft -->
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#FourJetEngineAircraft -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#FourEngineAircraft">
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#FourJetEngineAircraft">
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#specific-constant-constituent-of"/>
@@ -1234,14 +1234,14 @@ Note: The instances are not a complete list</rdfs:comment>
     
 
 
-    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#TwoEngineAircraft -->
+    <!-- http://www.semanticweb.org/mcgbri004/air-incident-ontology#TwoJetEngineAircraft -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#TwoEngineAircraft">
+    <owl:Class rdf:about="http://www.semanticweb.org/mcgbri004/air-incident-ontology#TwoJetEngineAircraft">
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.loa-cnr.it/ontologies/DOLCE-Lite.owl#specific-constant-constituent-of"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Engine"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#JetEngine"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mcgbri004/air-incident-ontology#Aircraft"/>
